@@ -28,7 +28,7 @@ dictionary = {
     " ": "/",
 }
 
-with open ("plik.txt", "r") as data:
+with open("plik.txt", "r") as data:
     input_user = data.read().replace('\n', 'z')
 output = "  "
 for x in input_user:
@@ -36,7 +36,7 @@ for x in input_user:
         print(output[2:])
         output = "  "
         continue
-    if(x.upper() in dictionary):
+    if (x.upper() in dictionary):
         if (output[-2] != "/" or dictionary[x.upper()] != "/"):
             output += dictionary[x.upper()]
             output += " "
