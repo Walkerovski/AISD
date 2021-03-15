@@ -36,7 +36,8 @@ for x in input_user:
         print(output[2:])
         output = "  "
         continue
-    if (output[-2] != "/" or dictionary[x.upper()] != "/"):
-        output += dictionary[x.upper()]
-        output += " "
+    if(x.upper() in dictionary):
+        if (output[-2] != "/" or dictionary[x.upper()] != "/"):
+            output += dictionary[x.upper()]
+            output += " "
 print(output[2:])
