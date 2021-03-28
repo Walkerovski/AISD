@@ -46,7 +46,7 @@ def TestQuicksort():
     quicksortTime = {}
     for num in [1000, 2000, 3000, 4000, 5000, 6000, 6113]:
         text = ReadFromFile("lorem_ipsum.txt", num)
-        tempTime = timeit.timeit(lambda: quickSort(text), number=1)
+        tempTime = timeit.timeit(lambda: quickSort(text, 0, len(text)-1), number=1)
         quicksortTime[num] = tempTime
     return quicksortTime
 
