@@ -1,10 +1,9 @@
 def read_from_file():
-    # f = open("lorem_ipsum.txt", "r")
-    # array = []
-    # for x in f.read():
-    #     array.append(x)
-    # return(array)
-    return([1,2,0,1,2,3,1231,32145,0])
+    f = open("lorem_ipsum.txt", "r")
+    array = []
+    for x in f.read():
+        array.append(x)
+    return(array)
 
 
 def swap(series, a, b):
@@ -12,11 +11,10 @@ def swap(series, a, b):
 
 
 def divide(series, l, r):
-    split_position = l + (r - l) // 2
+    split_position = r
     value = series[split_position]
-    swap(series, split_position, r)
     current_position = l
-    for i in range(l, r - 1):
+    for i in range(l, r):
         if series[i] < value:
             swap(series, i, current_position)
             current_position += 1

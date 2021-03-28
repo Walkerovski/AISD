@@ -7,7 +7,7 @@ def read_from_file():
 
 
 def bubbleSort(series):
-    for y in range(0, len(series)-1):
+    for y in range(0, len(series)):
         for x in range(0, len(series)-1-y):
             if(series[x+1] < series[x]):
                 series[x], series[x+1] = series[x+1], series[x]
