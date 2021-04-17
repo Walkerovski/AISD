@@ -26,14 +26,26 @@ def FindValue(node, value):
         return FindValue(node.lChild, value)
 
 
-root = None
-root = Insert(root, 50)
-root = Insert(root, 30)
-root = Insert(root, 20)
-root = Insert(root, 40)
-root = Insert(root, 70)
-root = Insert(root, 60)
-root = Insert(root, 80)
+def Delete(node, value):
+    if node is None:
+        return node
+    if value < node.value:
+        node.lChild = Delete(node.lChild, value)
+    elif value > node.value:
+        node.rChild = Delete(node.rChild, value)
+    else:
+        if node.lChild is None:
+            temp = node.rChild
+            node = None
+            return temp
 
-foundNode = FindValue(root, 70)
-print(foundNode.value, "\n", foundNode.lChild, foundNode.rChild)
+        elif node.rChild is None:
+            temp = node.lChild
+            node = None
+            return temp
+        temp = node.rChild
+        while(temp.lChild is not None):
+            temp = temp.lChild
+        node.value = temp.value
+        node.rChild = Delete(node.rChild, temp.value)
+    return node
