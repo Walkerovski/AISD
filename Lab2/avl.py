@@ -158,7 +158,7 @@ class Tree(object):
     def preOrder(self, root):
 
         if not root:
-            print("{0} ".format("None"), end="")
+            # print("{0} ".format("None"), end="")
             return
 
         print("{0} ".format(root.value), end="")
