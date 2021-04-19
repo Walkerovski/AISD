@@ -62,6 +62,6 @@ if __name__ == "__main__":
     plt.plot(*zip(*quicksortTime.items()))
     plt.title("Porównanie algorytmów sortowania")
     plt.xlabel("Długość tablicy")
-    plt.ylabel("Czas potrzebny na sortowanie")
+    plt.ylabel("Czas potrzebny na sortowanie (s)")
     plt.legend(["Bubblesort", "Countsort", "Mergesort", "Quicksort"])
     plt.savefig("plot.png")
