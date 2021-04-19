@@ -2,6 +2,7 @@ import bst
 import random
 import time
 import matplotlib.pyplot as plt
+from xml.dom import minidom
 
 numbers = random.sample(range(0, 30000), 10000)
 
@@ -15,6 +16,7 @@ def testInsertion():
             root = bst.Insert(root, numbers[j])
         stop = time.perf_counter()
         times.append(stop-start)
+    printXML(root)
     return times
 
 
@@ -44,6 +46,30 @@ def testDelete():
         stop = time.perf_counter()
         times.append(stop-start)
     return times
+
+
+def printXML(root):
+    doc = minidom.Document()
+    node = doc.createElement("root")
+    node.setAttribute('value', str(root.value))
+    doc.appendChild(node)
+    if root.rChild is not None:
+        printNode(root.rChild, node, doc)
+    if root.lChild is not None:
+        printNode(root.lChild, node, doc)
+    xml_str = doc.toprettyxml(indent='\t')
+    with open("tree.xml", "w") as f:
+        f.write(xml_str)
+
+
+def printNode(node, parent, doc):
+    child = doc.createElement("child")
+    child.setAttribute('value', str(node.value))
+    parent.appendChild(child)
+    if node.rChild is not None:
+        printNode(node.rChild, child, doc)
+    if node.lChild is not None:
+        printNode(node.lChild, child, doc)
 
 
 if __name__ == "__main__":
