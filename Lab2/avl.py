@@ -147,8 +147,12 @@ class Tree(object):
         if self.get_value(root) == key:
             return root
         if key > self.get_value(root):
+            if key > self.get_value(root.right):
+                return None
             return self.find(root.right, key)
         if key < self.get_value(root):
+            if key < self.get_value(root.left):
+                return None
             return self.find(root.left, key)
 
     def preOrder(self, root):
