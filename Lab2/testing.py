@@ -59,6 +59,7 @@ def testAvlInsertion():
             root = tree.add(root, numbers[j])
         stop = time.perf_counter()
         times.append(stop-start)
+    printXML_AVL(root, "AVL.xml")
     return times
 
 
@@ -106,6 +107,20 @@ def printXML(root, fileName):
         f.write(xml_str)
 
 
+def printXML_AVL(root, fileName):
+    doc = minidom.Document()
+    node = doc.createElement("root")
+    node.setAttribute('value', str(root.value))
+    doc.appendChild(node)
+    if root.right is not None:
+        printNode_AVL(root.right, node, doc)
+    if root.left is not None:
+        printNode_AVL(root.left, node, doc)
+    xml_str = doc.toprettyxml(indent='\t')
+    with open(fileName, "w") as f:
+        f.write(xml_str)
+
+
 def printNode(node, parent, doc):
     child = doc.createElement("child")
     child.setAttribute('value', str(node.value))
@@ -114,6 +129,16 @@ def printNode(node, parent, doc):
         printNode(node.rChild, child, doc)
     if node.lChild is not None:
         printNode(node.lChild, child, doc)
+
+
+def printNode_AVL(node, parent, doc):
+    child = doc.createElement("child")
+    child.setAttribute('value', str(node.value))
+    parent.appendChild(child)
+    if node.right is not None:
+        printNode_AVL(node.right, child, doc)
+    if node.left is not None:
+        printNode_AVL(node.left, child, doc)
 
 
 if __name__ == "__main__":

@@ -49,34 +49,3 @@ def Delete(node, value):
         node.value = temp.value
         node.rChild = Delete(node.rChild, temp.value)
     return node
-
-
-def preOrder(root):
-
-    if not root:
-        # print("{0} ".format("None"), end="")
-        return
-
-    print("{0} ".format(root.value), end="")
-    preOrder(root.lChild)
-    preOrder(root.rChild)
-
-
-if __name__ == "__main__":
-    root = None
-    nums = [9, 5, 10, 0, 6, 11, -1, 1, 2]
-    for x in nums:
-        root = Insert(root, x)
-    # Preorder Traversal
-    print("Preorder visited nodes:")
-    preOrder(root)
-    print()
-
-    # Delete
-    key = 10
-    root = Delete(root, key)
-
-    # Preorder Traversal
-    print("Preorder visited nodes:")
-    preOrder(root)
-    print()

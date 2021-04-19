@@ -154,34 +154,3 @@ class Tree(object):
             if key < self.get_value(root.left):
                 return None
             return self.find(root.left, key)
-
-    def preOrder(self, root):
-
-        if not root:
-            # print("{0} ".format("None"), end="")
-            return
-
-        print("{0} ".format(root.value), end="")
-        self.preOrder(root.left)
-        self.preOrder(root.right)
-
-
-if __name__ == "__main__":
-    Tree = Tree()
-    root = None
-    nums = [9, 5, 10, 0, 6, 11, -1, 1, 2]
-    for x in nums:
-        root = Tree.add(root, x)
-    # Preorder Traversal
-    print("Preorder visited nodes:")
-    Tree.preOrder(root)
-    print()
-
-    # Delete
-    key = 10
-    root = Tree.delete(root, key)
-
-    # Preorder Traversal
-    print("Preorder visited nodes:")
-    Tree.preOrder(root)
-    print()
