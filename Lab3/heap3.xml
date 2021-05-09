@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<root value="3">
+	<child value="5">
+		<child value="10"/>
+		<child value="84"/>
+		<child value="19"/>
+	</child>
+	<child value="6">
+		<child value="17"/>
+		<child value="22"/>
+		<child value="9"/>
+	</child>
+	<child value="10"/>
+</root>
