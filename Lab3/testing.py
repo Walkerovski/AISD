@@ -17,6 +17,7 @@ def testInsertion2():
             heap2.insert(heap, j)
         stop = time.perf_counter()
         times.append(stop-start)
+    heap2.printXML(heap, "heap2.xml")
     return times
 
 
@@ -43,6 +44,7 @@ def testInsertion3():
             heap3.insert(heap, j)
         stop = time.perf_counter()
         times.append(stop-start)
+    heap3.printXML(heap, "heap3.xml")
     return times
 
 
@@ -69,6 +71,7 @@ def testInsertion4():
             heap4.insert(heap, j)
         stop = time.perf_counter()
         times.append(stop-start)
+    heap4.printXML(heap, "heap4.xml")
     return times
 
 
