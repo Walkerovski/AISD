@@ -5,7 +5,14 @@ def test_typicalN():
     text = "abcbabc"
     string = "cba"
     result = stringSearchN.find(string, text)
-    assert(result == 2)
+    assert(result == [2])
+
+
+def test_multipleMatchesN():
+    text = "abcbabc"
+    string = "ab"
+    result = stringSearchN.find(string, text)
+    assert(result == [0, 4])
 
 
 def test_emptyStringN():
@@ -40,7 +47,7 @@ def test_textIsStringN():
     text = "abcbabc"
     string = "abcbabc"
     result = stringSearchN.find(string, text)
-    assert(result == 0)
+    assert(result == [0])
 
 
 def test_notInTextN():
