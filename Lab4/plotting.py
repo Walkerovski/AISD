@@ -31,6 +31,14 @@ def testNaive():
             stringSearchN.find(string, text)
         stop = time.perf_counter()
         times.append(stop-start)
+    for i in range(8, 11):
+        strings = readFirstWords('pan-tadeusz.txt', i * 100)
+        start = time.perf_counter()
+        for string in strings:
+            stringSearchN.find(string, text)
+        stop = time.perf_counter()
+        times.append(stop-start)
+        print("dupaN" + str(i))
     return times
 
 
@@ -44,6 +52,14 @@ def testKMP():
             stringSearchKMP.find(string, text)
         stop = time.perf_counter()
         times.append(stop-start)
+    for i in range(8, 11):
+        strings = readFirstWords('pan-tadeusz.txt', i * 100)
+        start = time.perf_counter()
+        for string in strings:
+            stringSearchN.find(string, text)
+        stop = time.perf_counter()
+        times.append(stop-start)
+        print("dupaKMP" + str(i))
     return times
 
 
@@ -57,6 +73,14 @@ def testKR():
             stringSearchKR.search(string, text)
         stop = time.perf_counter()
         times.append(stop-start)
+    for i in range(8, 11):
+        strings = readFirstWords('pan-tadeusz.txt', i * 100)
+        start = time.perf_counter()
+        for string in strings:
+            stringSearchN.find(string, text)
+        stop = time.perf_counter()
+        times.append(stop-start)
+        print("dupaKR" + str(i))
     return times
 
 
@@ -68,7 +92,7 @@ if __name__ == "__main__":
     plt.plot(KMPTimes)
     plt.plot(KRTimes)
     plt.title("Wyszukiwanie pierwszych n słów w całym pliku")
-    plt.xlabel("Liczba elementów (w 10)")
+    plt.xlabel("Liczba elementów (10..100 + trzy ostatnie punkty - 800, 900, 1000)")
     plt.ylabel("Czas (w sekundach)")
     plt.legend(["Algorytm naiwny", "Algorytm Knutha-Morrisa-Pratta", "Algorytm KR"])
     plt.savefig("stringPlot.png")
