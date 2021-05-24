@@ -1,4 +1,6 @@
 import stringSearchKR
+import stringSearchN
+import random
 
 
 def test_typicalN():
@@ -55,3 +57,39 @@ def test_notInTextN():
     string = "ddd"
     result = stringSearchKR.find(string, text)
     assert(result == -1)
+
+
+def test_randomKR1():
+    string = ""
+    text = ""
+    for i in range(10):
+        string += random.choice(['a', 'b'])
+    for i in range(100):
+        text += random.choice(['a', 'b'])
+    expected = stringSearchN.find(string, text)
+    result = stringSearchKR.find(string, text)
+    assert(result == expected)
+
+
+def test_randomKR2():
+    string = ""
+    text = ""
+    for i in range(80):
+        string += random.choice(['a', 'b'])
+    for i in range(100):
+        text += random.choice(['a', 'b'])
+    expected = stringSearchN.find(string, text)
+    result = stringSearchKR.find(string, text)
+    assert(result == expected)
+
+
+def test_randomKR3():
+    string = ""
+    text = ""
+    for i in range(2):
+        string += random.choice(['a', 'b'])
+    for i in range(100):
+        text += random.choice(['a', 'b'])
+    expected = stringSearchN.find(string, text)
+    result = stringSearchKR.find(string, text)
+    assert(result == expected)
