@@ -38,7 +38,6 @@ def testNaive():
             stringSearchN.find(string, text)
         stop = time.perf_counter()
         times.append(stop-start)
-        print("dupaN" + str(i))
     return times
 
 
@@ -56,10 +55,9 @@ def testKMP():
         strings = readFirstWords('pan-tadeusz.txt', i * 100)
         start = time.perf_counter()
         for string in strings:
-            stringSearchN.find(string, text)
+            stringSearchKMP.find(string, text)
         stop = time.perf_counter()
         times.append(stop-start)
-        print("dupaKMP" + str(i))
     return times
 
 
@@ -77,10 +75,9 @@ def testKR():
         strings = readFirstWords('pan-tadeusz.txt', i * 100)
         start = time.perf_counter()
         for string in strings:
-            stringSearchN.find(string, text)
+            stringSearchKR.search(string, text)
         stop = time.perf_counter()
         times.append(stop-start)
-        print("dupaKR" + str(i))
     return times
 
 
