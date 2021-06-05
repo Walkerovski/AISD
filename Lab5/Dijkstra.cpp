@@ -11,6 +11,7 @@ vector < pair < pair<int, int>, int> > V[1021][1024];
 void Dijkstra(pair<int, int> a, pair<int, int> b, int n, int m)
 {
     //                          .f.f      .f.s.f .f.s.s           .s
+    //                          cost      f axis s axis           rout
     priority_queue< pair< pair< int, pair<int, int> >, vector<pair<int, int>  > > > Q;
     B[a.f][a.s] = 1;
     vector<pair<int,int>>Help;
