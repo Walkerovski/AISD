@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <fstream>
 #define f first
 #define s second
 using namespace std;
@@ -44,24 +45,29 @@ void Dijkstra(pair<int, int> a, pair<int, int> b, int n, int m)
 }
 
 
-int main()
+int main(int argc, char *argv[])
 {
-    int n, m;
-    cin >> n >> m;
-    pair<int, int> a = {0, 0}, b;
-    for(int i = 1; i <= n; i++)
-    {
-        for(int j = 1; j <= m; j++)
-        {
-            cin >> Tab[i][j];
-            if(Tab[i][j] == 0)
-                if(a == make_pair(0, 0))
-                    a = {i, j};
-                else
-                    b = {i, j};
-        }
+    if(argc != 2){
+        cout << "Podaj nazwe pliku!";
+        return 0;
     }
-
+    ifstream infile(argv[1]);
+    int n = 0, m = 0;
+    string line;
+    pair<int, int> a = {0, 0}, b;
+    while(getline(infile, line)){
+        for(int i = 0; i < line.size(); i++){
+            Tab[m + 1][i + 1] = (int)line[i] - (int)'0';
+            if(Tab[m + 1][i + 1] == 0)
+                if(a == make_pair(0, 0))
+                    a = {m + 1, i + 1};
+                else
+                    b = {m + 1, i + 1};
+        }
+        if(n == 0) n = line.size();
+        m++;
+    }
+    infile.close();
     for(int i = 1; i <= n; i++)
     {
         for(int j = 1; j <= m; j++)
