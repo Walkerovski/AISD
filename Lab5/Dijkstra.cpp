@@ -57,15 +57,15 @@ int main(int argc, char *argv[])
     pair<int, int> a = {0, 0}, b;
     while(getline(infile, line)){
         for(int i = 0; i < line.size(); i++){
-            Tab[m + 1][i + 1] = (int)line[i] - (int)'0';
-            if(Tab[m + 1][i + 1] == 0)
+            Tab[n + 1][i + 1] = (int)line[i] - (int)'0';
+            if(Tab[n + 1][i + 1] == 0)
                 if(a == make_pair(0, 0))
-                    a = {m + 1, i + 1};
+                    a = {n + 1, i + 1};
                 else
-                    b = {m + 1, i + 1};
+                    b = {n + 1, i + 1};
         }
-        if(n == 0) n = line.size();
-        m++;
+        if(m == 0) m = line.size();
+        n++;
     }
     infile.close();
     for(int i = 1; i <= n; i++)
